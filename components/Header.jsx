@@ -8,7 +8,6 @@ import {
   MenuItem,
   MenuList,
   Text,
-  Box
 } from "@chakra-ui/react";
 import { Rating } from "@material-ui/lab";
 import { Autocomplete } from "@react-google-maps/api";
@@ -54,25 +53,25 @@ const Header = ({ setType, setRatings, setCoordinates }) => {
     >
       <Flex>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-        <InputGroup width={"35vw"} shadow="lg">
-  <InputRightElement
-    pointerEvents={"none"}
-  >
-    <Box as={BiSearch} color="gray" fontSize={20} />
-  </InputRightElement>
+          <InputGroup width={"35vw"} shadow="lg">
+            <InputRightElement
+              pointerEvents={"none"}
+    
+            ><BiSearch color="gray" fontSize={20} /></InputRightElement>
 
-  <Input
-    type={"text"}
-    placeholder="Search Google Map..."
-    variant={"filled"}
-    fontSize={18}
-    bg={"white"}
-    color={"gray.700"}
-    _hover={{ bg: "whiteAlpha.800" }}
-    _focus={{ bg: "whiteAlpha.800" }}
-    _placeholder={{ color: "gray.700" }}
-  />
-</InputGroup>        </Autocomplete>
+            <Input
+              type={"text"}
+              placeholder="Search Google Map..."
+              variant={"filled"}
+              fontSize={18}
+              bg={"white"}
+              color={"gray.700"}
+              _hover={{ bg: "whiteAlpha.800" }}
+              _focus={{ bg: "whiteAlpha.800" }}
+              _placeholder={{ color: "gray.700" }}
+            />
+          </InputGroup>
+        </Autocomplete>
 
         <Flex alignItems={"center"} justifyContent={"center"}>
           <Flex

@@ -1,9 +1,9 @@
-import 'dotenv/config';
 import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import List from "../components/List";
 import Map from "../components/Map";
+require('dotenv').config();
 import { getPlacesData } from "./api";
 import { LoadScript } from '@react-google-maps/api';
 
@@ -20,9 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     // get the users current location on intial login
-    console.log("REACT_APP_GOOGLE_MAPS_API_KEY:", process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
-console.log("RAPIDAPI_HOST:", process.env.RAPIDAPI_HOST);
-console.log("RAPIDAPI_KEY:", process.env.RAPIDAPI_KEY);
+
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
         console.log({ latitude, longitude });
@@ -59,7 +57,7 @@ console.log("RAPIDAPI_KEY:", process.env.RAPIDAPI_KEY);
     if (coordinates.lat && coordinates.lng) {
       getPlacesData(type, bounds?.sw, bounds?.ne)
         .then((data) => {
-          console.log(data);
+          console.log("sss"+data);
           setPlaces(data);
           setIsLoading(false);
         })
@@ -83,7 +81,7 @@ console.log("RAPIDAPI_KEY:", process.env.RAPIDAPI_KEY);
     >
       
     <LoadScript
-            googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+            googleMapsApiKey="AIzaSyAhezZc7U1z_f_FoIoNRTnTO7wYbPvPqGs"
             libraries={GOOGLE_MAPS_LIBRARIES}
           >
       <Header
