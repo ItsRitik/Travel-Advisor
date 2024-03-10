@@ -1,16 +1,19 @@
+import 'dotenv/config'
 import { Box, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
 import { IoLocation } from "react-icons/io5";
 import { BiX } from "react-icons/bi";
 
+
 const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
   const [isCard, setIsCard] = useState(false);
   const [cardData, setCardData] = useState(null);
+  console.log("sss"+process.env)
   return (
     <Box  width={"full"} height={"full"}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyAhezZc7U1z_f_FoIoNRTnTO7wYbPvPqGs" }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={10}
